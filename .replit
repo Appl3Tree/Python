@@ -3,5 +3,5 @@ language="python3"
 onBoot="echo Booting up!"
 
 [packager]
-afterInstall="date >> package_install_log"
+afterInstall=""
 ignoredPaths=[".git"]
