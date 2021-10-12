@@ -6,7 +6,6 @@ import random
 letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 symbols = ['!', '#', '$', '%', '^', '(', ')', '*', '+']
-password = ''
 
 #   Banner
 print('''
@@ -17,16 +16,19 @@ print('''
 nr_letters = int(input('How many letters would you like in your password?\n\t'))
 nr_symbols = int(input('How many symbols would you like in your password?\n\t'))
 nr_numbers = int(input('How many numbers would you like in your password?\n\t'))
-totalChars = nr_letters + nr_symbols + nr_numbers
 
 #   Easy
+easyPassword = ''
 for l in range(nr_letters):
-    password += random.choice(letters)
+    easyPassword += random.choice(letters)
 for s in range(nr_symbols):
-    password += random.choice(symbols)
+    easyPassword += random.choice(symbols)
 for n in range(nr_numbers):
-    password += random.choice(numbers)
-print(f'Here is your password: {password}')
+    easyPassword += random.choice(numbers)
+print(f'Here is your easy password: {easyPassword}')
 
 #   Hard
-password = ''
+hardPassword = list(easyPassword)
+random.shuffle(hardPassword)
+hardPassword = ''.join(hardPassword)
+print(f'Here is your hard password: {hardPassword}')
