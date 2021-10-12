@@ -28,7 +28,13 @@ for n in range(nr_numbers):
 print(f'Here is your easy password: {easyPassword}')
 
 #   Hard
-hardPassword = list(easyPassword)
+hardPassword = []
+for l in range(nr_letters):
+    hardPassword.append(random.choice(letters))
+for s in range(nr_symbols):
+    hardPassword.append(random.choice(symbols))
+for n in range(nr_numbers):
+    hardPassword.append(random.choice(numbers))
 random.shuffle(hardPassword)
 hardPassword = ''.join(hardPassword)
 print(f'Here is your hard password: {hardPassword}')
