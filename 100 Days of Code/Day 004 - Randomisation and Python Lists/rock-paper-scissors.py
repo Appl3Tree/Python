@@ -45,24 +45,16 @@ elif computerChoice == 1:
 else:
     print(scissors)
 
-if choice == 0:
-    if computerChoice == 0:
-        print('It\'s a draw!')
-    elif computerChoice == 1:
-        print('You lose.')
-    else:
-        print('You win!')
-elif choice == 1:
-    if computerChoice == 0:
-        print('You win!')
-    elif computerChoice == 1:
-        print('It\'s a draw!')
-    else:
-        print('You lose.')
+if choice == 0 and computerChoice == 2:
+    print('You win!')
+elif choice == 2 and computerChoice == 0:
+    print('You lose!')
+elif choice < computerChoice:
+    print('You lose!')
+elif choice > computerChoice:
+    print('You win!')
+elif choice == computerChoice:
+    print('It\'s a draw.')
 else:
-    if computerChoice == 0:
-        print('You lose.')
-    elif computerChoice == 1:
-        print('You win!')
-    else:
-        print('It\'s a draw.')
+    print('You typed an invalid number, you lose!')
+
