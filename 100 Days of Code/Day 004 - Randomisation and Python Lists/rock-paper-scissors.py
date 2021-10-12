@@ -26,24 +26,15 @@ scissors = '''
       (____)
 ---.__(___)
 '''
+images = [rock, paper, scissors]
 
 choice = int(input('What do you choose? Type 0 for Rock, 1 for Paper, or 2 for Scissors.\n'))
 print(f'You chose {choice}:')
-if choice == 0:
-    print(rock)
-elif choice == 1:
-    print(paper)
-elif choice == 2:
-    print(scissors)
+print(images[choice])
 
 computerChoice = random.randint(0, 2)
 print(f'The computer chose {computerChoice}:')
-if computerChoice == 0:
-    print(rock)
-elif computerChoice == 1:
-    print(paper)
-else:
-    print(scissors)
+print(images[computerChoice])
 
 if choice >= 3 or choice < 0:
     print('You typed an invalid number, you lose!')
