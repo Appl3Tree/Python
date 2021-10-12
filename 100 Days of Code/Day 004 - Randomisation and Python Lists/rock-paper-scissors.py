@@ -33,7 +33,7 @@ if choice == 0:
     print(rock)
 elif choice == 1:
     print(paper)
-else:
+elif choice == 2:
     print(scissors)
 
 computerChoice = random.randint(0, 2)
@@ -45,7 +45,9 @@ elif computerChoice == 1:
 else:
     print(scissors)
 
-if choice == 0 and computerChoice == 2:
+if choice >= 3 or choice < 0:
+    print('You typed an invalid number, you lose!')
+elif choice == 0 and computerChoice == 2:
     print('You win!')
 elif choice == 2 and computerChoice == 0:
     print('You lose!')
@@ -55,6 +57,4 @@ elif choice > computerChoice:
     print('You win!')
 elif choice == computerChoice:
     print('It\'s a draw.')
-else:
-    print('You typed an invalid number, you lose!')
 
