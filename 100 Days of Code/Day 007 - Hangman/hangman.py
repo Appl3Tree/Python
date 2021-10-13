@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import random
+import os
 
 stages = ['''
  +---+
@@ -32,7 +33,8 @@ stages = ['''
 /|   |
      |
      |
-=========''', '''
+=========
+''', '''
  +---+
  |   |
  O   |
@@ -59,7 +61,10 @@ stages = ['''
 ''']
 word_list = ['ardvark', 'baboon', 'camel']
 chosen_word = random.choice(word_list)
-
+if os.name == 'nt':
+    os.system('cls')
+else:
+    os.system('clear')
 print('''
   _
  | |
@@ -84,6 +89,10 @@ guessedLetters = []
 while not endOfGame:
     # Get guess and replace _ with guess if it exists.
     guess = input('Guess a letter: ').lower()
+    if os.name == 'nt':
+        os.system('cls')
+    else:
+        os.system('clear')
     letterInGuess = False
     alreadyGuessed = False
     for position in range(word_length):
@@ -102,7 +111,7 @@ while not endOfGame:
             lives -= 1
         print(stages[lives])
         guessedLetters += guess
-        print(f"\nCurrently guessed characters: {' '.join(guessedLetters)}")
+        print(f"Currently guessed characters: {' '.join(guessedLetters)}")
         print(f'Incorrect guesses left: {lives}')
         print(f"{' '.join(display)}")
         if '_' not in display:
