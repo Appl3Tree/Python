@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 import random
 import os
+import sys
+word_list = []
+with open(sys.argv[1], 'r') as f:
+    word_list = f.read().splitlines()
 
 stages = ['''
  +---+
@@ -59,7 +63,7 @@ stages = ['''
      |
 =========
 ''']
-word_list = ['ardvark', 'baboon', 'camel']
+#word_list = ['ardvark', 'baboon', 'camel']
 chosen_word = random.choice(word_list)
 if os.name == 'nt':
     os.system('cls')
@@ -89,14 +93,9 @@ guessedLetters = []
 while not endOfGame:
     # Get guess and replace _ with guess if it exists.
     guess = input('Guess a letter: ').lower()
-    if os.name == 'nt':
-        os.system('cls')
-    else:
-        os.system('clear')
     letterInGuess = False
     alreadyGuessed = False
-    for position in range(word_length):
-        letter= display[position]
+    for letter in guessedLetters:
         if letter == guess:
             alreadyGuessed = True
     if alreadyGuessed:
@@ -109,6 +108,10 @@ while not endOfGame:
                 letterInGuess = True
         if letterInGuess == False:
             lives -= 1
+        if os.name == 'nt':
+            os.system('cls')
+        else:
+            os.system('clear')
         print(stages[lives])
         guessedLetters += guess
         print(f"Currently guessed characters: {' '.join(guessedLetters)}")
@@ -120,3 +123,4 @@ while not endOfGame:
         if lives == 0:
             endOfGame = True
             print('You lose.')
+            print(f'\nThe correct answer was {chosen_word}')
