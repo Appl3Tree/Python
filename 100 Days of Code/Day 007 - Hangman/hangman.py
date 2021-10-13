@@ -1,4 +1,64 @@
 #!/usr/bin/env python3
+import random
+
+stages = ['''
+ +---+
+ |   |
+ O   |
+/|\  |
+/ \  |
+     |
+=========
+''', '''
+ +---+
+ |   |
+ O   |
+/|\  |
+/    |
+     |
+=========
+''', '''
+ +---+
+ |   |
+ O   |
+/|\  |
+     |
+     |
+=========
+''', '''
+ +---+
+ |   |
+ O   |
+/|   |
+     |
+     |
+=========''', '''
+ +---+
+ |   |
+ O   |
+ |   |
+     |
+     |
+=========
+''', '''
+ +---+
+ |   |
+ O   |
+     |
+     |
+     |
+=========
+''', '''
+ +---+
+ |   |
+     |
+     |
+     |
+     |
+=========
+''']
+word_list = ['ardvark', 'baboon', 'camel']
+chosen_word = random.choice(word_list)
 
 print('''
   _
@@ -10,4 +70,44 @@ print('''
                      __/ |
                     |___/
 ''')
-guess = input('Guess a letter: ')
+
+display = []
+word_length = len(chosen_word)
+
+# Set display to all _'s
+for letter in chosen_word:
+    display.append('_')
+
+endOfGame = False
+lives = 6
+guessedLetters = []
+while not endOfGame:
+    # Get guess and replace _ with guess if it exists.
+    guess = input('Guess a letter: ').lower()
+    letterInGuess = False
+    alreadyGuessed = False
+    for position in range(word_length):
+        letter= display[position]
+        if letter == guess:
+            alreadyGuessed = True
+    if alreadyGuessed:
+        print('You must choose a different letter.')
+    else:
+        for position in range(word_length):
+            letter = chosen_word[position]
+            if letter == guess:
+                display[position] = letter
+                letterInGuess = True
+        if letterInGuess == False:
+            lives -= 1
+        print(stages[lives])
+        guessedLetters += guess
+        print(f"\nCurrently guessed characters: {' '.join(guessedLetters)}")
+        print(f'Incorrect guesses left: {lives}')
+        print(f"{' '.join(display)}")
+        if '_' not in display:
+            endOfGame = True
+            print('You win!')
+        if lives == 0:
+            endOfGame = True
+            print('You lose.')
