@@ -64,7 +64,7 @@ stages = ['''
 =========
 ''']
 #word_list = ['ardvark', 'baboon', 'camel']
-chosen_word = random.choice(word_list)
+chosen_word = random.choice(word_list).lower()
 if os.name == 'nt':
     os.system('cls')
 else:
