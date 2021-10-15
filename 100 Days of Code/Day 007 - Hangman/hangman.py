@@ -109,6 +109,7 @@ while not endOfGame:
         print(logo)
         print(stages[lives])
         guessedLetters += guess
+        guessedLetters.sort()
         print(f"Currently guessed characters: {' '.join(guessedLetters)}")
         print(f'Incorrect guesses left: {lives}')
         print(f"{' '.join(display)}")
