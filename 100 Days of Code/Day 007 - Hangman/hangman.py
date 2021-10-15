@@ -3,7 +3,7 @@ import random
 import os
 import sys
 word_list = []
-with open(sys.argv[1], 'r') as f:
+with open('100 Days of Code/Day 007 - Hangman/word_list', 'r') as f:
     word_list = f.read().splitlines()
 
 stages = ['''
@@ -69,7 +69,7 @@ if os.name == 'nt':
     os.system('cls')
 else:
     os.system('clear')
-print('''
+logo = '''
   _
  | |
  | |__   __ _ _ __   __ _ _ __ ___   __ _ _ __
@@ -78,8 +78,8 @@ print('''
  |_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
                      __/ |
                     |___/
-''')
-
+'''
+print(logo)
 display = []
 word_length = len(chosen_word)
 
@@ -93,25 +93,20 @@ guessedLetters = []
 while not endOfGame:
     # Get guess and replace _ with guess if it exists.
     guess = input('Guess a letter: ').lower()
-    letterInGuess = False
-    alreadyGuessed = False
-    for letter in guessedLetters:
-        if letter == guess:
-            alreadyGuessed = True
-    if alreadyGuessed:
-        print('You must choose a different letter.')
+    if guess in guessedLetters:
+        print('You\'ve already guessed that letter.')
     else:
         for position in range(word_length):
             letter = chosen_word[position]
             if letter == guess:
                 display[position] = letter
-                letterInGuess = True
-        if letterInGuess == False:
+        if guess not in chosen_word:
             lives -= 1
         if os.name == 'nt':
             os.system('cls')
         else:
             os.system('clear')
+        print(logo)
         print(stages[lives])
         guessedLetters += guess
         print(f"Currently guessed characters: {' '.join(guessedLetters)}")
@@ -119,8 +114,8 @@ while not endOfGame:
         print(f"{' '.join(display)}")
         if '_' not in display:
             endOfGame = True
-            print('You win!')
+            print('\nYou win!')
         if lives == 0:
             endOfGame = True
-            print('You lose.')
-            print(f'\nThe correct answer was {chosen_word}')
+            print('\nYou lose.')
+            print(f'The correct answer was {chosen_word}.')
