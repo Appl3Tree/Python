@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 import random
+import os
+import sys
+word_list = []
+with open('100 Days of Code/Day 007 - Hangman/word_list', 'r') as f:
+    word_list = f.read().splitlines()
 
 stages = ['''
  +---+
@@ -32,7 +37,8 @@ stages = ['''
 /|   |
      |
      |
-=========''', '''
+=========
+''', '''
  +---+
  |   |
  O   |
@@ -57,10 +63,13 @@ stages = ['''
      |
 =========
 ''']
-word_list = ['ardvark', 'baboon', 'camel']
-chosen_word = random.choice(word_list)
-
-print('''
+#word_list = ['ardvark', 'baboon', 'camel']
+chosen_word = random.choice(word_list).lower()
+if os.name == 'nt':
+    os.system('cls')
+else:
+    os.system('clear')
+logo = '''
   _
  | |
  | |__   __ _ _ __   __ _ _ __ ___   __ _ _ __
@@ -69,8 +78,8 @@ print('''
  |_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
                      __/ |
                     |___/
-''')
-
+'''
+print(logo)
 display = []
 word_length = len(chosen_word)
 
@@ -84,30 +93,30 @@ guessedLetters = []
 while not endOfGame:
     # Get guess and replace _ with guess if it exists.
     guess = input('Guess a letter: ').lower()
-    letterInGuess = False
-    alreadyGuessed = False
-    for position in range(word_length):
-        letter= display[position]
-        if letter == guess:
-            alreadyGuessed = True
-    if alreadyGuessed:
-        print('You must choose a different letter.')
+    if guess in guessedLetters:
+        print('You\'ve already guessed that letter.')
     else:
         for position in range(word_length):
             letter = chosen_word[position]
             if letter == guess:
                 display[position] = letter
-                letterInGuess = True
-        if letterInGuess == False:
+        if guess not in chosen_word:
             lives -= 1
+        if os.name == 'nt':
+            os.system('cls')
+        else:
+            os.system('clear')
+        print(logo)
         print(stages[lives])
         guessedLetters += guess
-        print(f"\nCurrently guessed characters: {' '.join(guessedLetters)}")
+        guessedLetters.sort()
+        print(f"Currently guessed characters: {' '.join(guessedLetters)}")
         print(f'Incorrect guesses left: {lives}')
         print(f"{' '.join(display)}")
         if '_' not in display:
             endOfGame = True
-            print('You win!')
+            print('\nYou win!')
         if lives == 0:
             endOfGame = True
-            print('You lose.')
+            print('\nYou lose.')
+            print(f'The correct answer was {chosen_word}.')
