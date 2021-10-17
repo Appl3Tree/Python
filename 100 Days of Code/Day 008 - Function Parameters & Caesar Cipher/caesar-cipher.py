@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
+import art
 
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-logo = '''
-
-'''
+print(art.logo)
 
 direction = input('Type \'encode\' to encrypt, type \'decode\' to decrypt:\n').lower()
 text = input('Type your message:\n').lower()
@@ -13,11 +12,8 @@ def encrypt(plaintext, shift):
     ciphertext = ''
     for letter in plaintext:
         position = alphabet.index(letter)
-<<<<<<< HEAD
         if position + shift > 25:
             position -= 26
-=======
->>>>>>> origin/main
         new_position = position + shift
         new_letter = alphabet[new_position]
         ciphertext += new_letter
@@ -27,19 +23,16 @@ def decrypt(ciphertext, shift):
     plaintext = ''
     for letter in ciphertext:
         position = alphabet.index(letter)
-<<<<<<< HEAD
         if position - shift < 0:
             position += 26
-=======
->>>>>>> origin/main
         new_position = position - shift
         new_letter = alphabet[new_position]
         plaintext += new_letter
     print(f'The decoded text is: {plaintext}')
 
 if direction == 'encode':
-    encrypt(text, shift)
+    encrypt(plaintext=text, shift=shift)
 elif direction == 'decode':
-    decrypt(text, shift)
+    decrypt(ciphertext=text, shift=shift)
 else:
     print(f'{text} is not \'encode\' or \'decode\'')

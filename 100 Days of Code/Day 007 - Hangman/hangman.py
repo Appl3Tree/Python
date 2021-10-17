@@ -2,9 +2,7 @@
 import random
 import os
 import sys
-word_list = []
-with open('100 Days of Code/Day 007 - Hangman/word_list', 'r') as f:
-    word_list = f.read().splitlines()
+import word_list
 
 stages = ['''
  +---+
@@ -64,7 +62,7 @@ stages = ['''
 =========
 ''']
 #word_list = ['ardvark', 'baboon', 'camel']
-chosen_word = random.choice(word_list).lower()
+chosen_word = random.choice(word_list.word_list).lower()
 if os.name == 'nt':
     os.system('cls')
 else:
