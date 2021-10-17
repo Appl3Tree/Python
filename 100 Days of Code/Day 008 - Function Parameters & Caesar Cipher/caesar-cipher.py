@@ -5,8 +5,31 @@ logo = '''
 
 '''
 
-direction = input('Type \'encode\' to encrypt, type \'decode\' to decrypt:\n')
-text = input('Type your message:\n')
+direction = input('Type \'encode\' to encrypt, type \'decode\' to decrypt:\n').lower()
+text = input('Type your message:\n').lower()
 shift = int(input('Type the shift number:\n'))
 
+def encrypt(plaintext, shift):
+    ciphertext = ''
+    for letter in plaintext:
+        position = alphabet.index(letter)
+        new_position = position + shift
+        new_letter = alphabet[new_position]
+        ciphertext += new_letter
+    print(f'The encoded text is: {ciphertext}')
 
+def decrypt(ciphertext, shift):
+    plaintext = ''
+    for letter in ciphertext:
+        position = alphabet.index(letter)
+        new_position = position - shift
+        new_letter = alphabet[new_position]
+        plaintext += new_letter
+    print(f'The decoded text is: {plaintext}')
+
+if direction == 'encode':
+    encrypt(text, shift)
+elif direction == 'decode':
+    decrypt(text, shift)
+else:
+    print(f'{text} is not \'encode\' or \'decode\'')
