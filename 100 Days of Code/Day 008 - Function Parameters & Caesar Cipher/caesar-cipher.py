@@ -13,8 +13,11 @@ def encrypt(plaintext, shift):
     ciphertext = ''
     for letter in plaintext:
         position = alphabet.index(letter)
+<<<<<<< HEAD
         if position + shift > 25:
             position -= 26
+=======
+>>>>>>> origin/main
         new_position = position + shift
         new_letter = alphabet[new_position]
         ciphertext += new_letter
@@ -24,8 +27,11 @@ def decrypt(ciphertext, shift):
     plaintext = ''
     for letter in ciphertext:
         position = alphabet.index(letter)
+<<<<<<< HEAD
         if position - shift < 0:
             position += 26
+=======
+>>>>>>> origin/main
         new_position = position - shift
         new_letter = alphabet[new_position]
         plaintext += new_letter
