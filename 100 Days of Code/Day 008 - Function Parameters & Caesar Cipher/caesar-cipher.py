@@ -5,6 +5,8 @@ import art
 print(art.logo)
 
 direction = input('Type \'encode\' to encrypt, type \'decode\' to decrypt:\n').lower()
+if direction != 'encode' and direction != 'decode':
+    quit()
 text = input('Type your message:\n')
 shift = int(input('Type the shift number:\n'))
 
