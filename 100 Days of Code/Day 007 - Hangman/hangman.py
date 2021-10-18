@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import random
 import os
-import sys
 import word_list
 
 stages = ['''
@@ -91,6 +90,7 @@ guessedLetters = []
 while not endOfGame:
     # Get guess and replace _ with guess if it exists.
     guess = input('Guess a letter: ').lower()
+    guess = guess[0]
     if guess in guessedLetters:
         print('You\'ve already guessed that letter.')
     else:
