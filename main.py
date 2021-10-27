@@ -12,10 +12,10 @@ os.system('cp /home/runner/Python/pynew /opt/virtualenvs/python3/bin/pynew')
 #print('The command \'pynew\' is now available for use.\n')
 runProgram = False
 while runProgram == True:
+    daysOfCode = os.listdir('/home/runner/Python/100 Days of Code/')
     choice = int(input('What do you wanna do?\n1 - List Projects\n2 - Run a project\n'))
     clear_screen()
     if choice == 1:
-        daysOfCode = os.listdir('/home/runner/Python/100 Days of Code/')
         inc = 0
         for day in daysOfCode:
             print(day)
