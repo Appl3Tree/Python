@@ -15,9 +15,10 @@ while runProgram == True:
     choice = int(input('What do you wanna do?\n1 - List Projects\n2 - Run a project\n'))
     clear_screen()
     if choice == 1:
+        daysOfCode = os.listdir('/home/runner/Python/100 Days of Code/')
         inc = 0
-        for i in days_of_code.daysOfCode:
-            print(i)
+        for day in daysOfCode:
+            print(day)
             inc += 1
             if inc % 10 == 0:
                 cont = input('List more? y/n\n')
