@@ -58,4 +58,3 @@ while runProgram == True:
         clear_screen()
         quit()
     print('\n')
-    
