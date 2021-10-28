@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import os
-import days_of_code
 
 def clear_screen():
     if os.name == 'nt':
@@ -24,10 +23,7 @@ while runProgram == True:
             if inc % 10 == 0:
                 cont = input('List more? y/n\n')
                 if cont == 'y' or cont == 'Y':
-                    if os.name == 'nt':
-                        os.system('cls')
-                    else:
-                        os.system('clear')
+                    clear_screen()
                     continue
                 else:
                     break
@@ -50,8 +46,10 @@ while runProgram == True:
         elif choice == 8:
             os.system('"100 Days of Code/Day 008 - Function Parameters & Caesar Cipher/caesar-cipher.py"')
         else:
+            clear_screen()
             quit()
     else:
+        clear_screen()
         quit()
     print('\n')
     
