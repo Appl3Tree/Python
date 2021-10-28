@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import os
+import days_of_code
 
 def clear_screen():
     if os.name == 'nt':
@@ -7,17 +8,18 @@ def clear_screen():
     else:
         os.system('clear')
 
-os.system('cp /home/runner/Python/pynew /opt/virtualenvs/python3/bin/pynew')
-os.system('cp /home/runner/Python/.vimrc /home/runner/.vimrc')
-#print('The command \'pynew\' is now available for use.\n')
 runProgram = True
+if runProgram == False:
+    os.system('cp /home/runner/Python/pynew /opt/virtualenvs/python3/bin/pynew')
+    os.system('cp /home/runner/Python/.vimrc /home/runner/.vimrc')
+
 while runProgram == True:
-    daysOfCode = os.listdir('/home/runner/Python/100 Days of Code/')
+    #daysOfCode = os.listdir('/home/runner/Python/100 Days of Code/')
     choice = input('What do you wanna do?\n1 - List Projects\n2 - Run a project\n')
     clear_screen()
     if choice == '1':
         inc = 0
-        for day in daysOfCode:
+        for day in days_of_code.daysOfCode:
             print(day)
             inc += 1
             if inc % 10 == 0:

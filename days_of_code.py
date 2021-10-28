@@ -7,4 +7,7 @@ daysOfCode = [
     '006 - Python Functions & Karel',
     '007 - Hangman',
     '008 - Function Parameters & Caesar Cipher',
+    '009 - Dictionaries, Nesting, and the Secret Auction',
+    '010 - Functions with Outputs',
+    '011 - Blackjack Capstone Project',
 ]
