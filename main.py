@@ -9,6 +9,7 @@ def clear_screen():
         os.system('clear')
 
 os.system('cp /home/runner/Python/pynew /opt/virtualenvs/python3/bin/pynew')
+os.system('cp /home/runner/Python/.vimrc /home/runner/.vimrc')
 #print('The command \'pynew\' is now available for use.\n')
 runProgram = False
 while runProgram == True:

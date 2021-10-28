@@ -1,0 +1,14 @@
+set autoindent
+set smartindent
+set tabstop=4
+set smarttab
+syntax enable
+set ruler
+set wildmenu
+set number
+set mouse=a
+set title
+set background=dark
+set backspace=indent,eol,start
+set history=1000
+set noswapfile

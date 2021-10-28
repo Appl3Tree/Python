@@ -4,4 +4,4 @@ onBoot="echo Booting up!"
 
 [packager]
 afterInstall=""
-ignoredPaths=[".git"]
+ignoredPaths=[".git", ".vimrc"]
