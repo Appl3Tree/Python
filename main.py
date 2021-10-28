@@ -14,6 +14,7 @@ if runProgram == False:
     os.system('cp /home/runner/Python/.vimrc /home/runner/.vimrc')
 
 while runProgram == True:
+    # Line below moved 'cause replit doesn't like hard-coded paths past a homedir.
     #daysOfCode = os.listdir('/home/runner/Python/100 Days of Code/')
     choice = input('What do you wanna do?\n1 - List Projects\n2 - Run a project\n')
     clear_screen()
