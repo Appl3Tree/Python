@@ -10,12 +10,12 @@ def clear_screen():
 os.system('cp /home/runner/Python/pynew /opt/virtualenvs/python3/bin/pynew')
 os.system('cp /home/runner/Python/.vimrc /home/runner/.vimrc')
 #print('The command \'pynew\' is now available for use.\n')
-runProgram = False
+runProgram = True
 while runProgram == True:
     daysOfCode = os.listdir('/home/runner/Python/100 Days of Code/')
-    choice = int(input('What do you wanna do?\n1 - List Projects\n2 - Run a project\n'))
+    choice = input('What do you wanna do?\n1 - List Projects\n2 - Run a project\n')
     clear_screen()
-    if choice == 1:
+    if choice == '1':
         inc = 0
         for day in daysOfCode:
             print(day)
@@ -27,7 +27,7 @@ while runProgram == True:
                     continue
                 else:
                     break
-    elif choice == 2:
+    elif choice == '2':
         choice = int(input('Which day\'s project do you want to run? 1-100\n'))
         if choice == 1:
             os.system('"100 Days of Code/Day 001 - Variables to Manage Data/band-name-generator.py"')
