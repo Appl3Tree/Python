@@ -46,9 +46,10 @@ while True:
             os.system('"100 Days of Code/Day 007 - Hangman/hangman.py"')
         elif choice == 8:
             os.system('"100 Days of Code/Day 008 - Function Parameters & Caesar Cipher/caesar-cipher.py"')
+        elif choice == 9:
+            os.system('"100 Days of Code/Day 009 - Dictionaries, Nesting and the Secret Auction/blind-auction.py"')
         else:
             quit()
     else:
         quit()
     print('\n')
-    
