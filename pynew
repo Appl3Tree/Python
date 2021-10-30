@@ -7,5 +7,14 @@ if len(sys.argv) < 2:
 filename = sys.argv[1]
 filename += '.py'
 with open(filename, 'w') as f:
-    f.write('#!/usr/bin/env python3\n\n')
+    f.write('''#!/usr/bin/env python3
+import os
+
+def clear():
+    if os.name == 'nt':
+        os.system('cls')
+    else:
+        os.system('clear')
+
+''')
 os.system('chmod +x ' + filename)
