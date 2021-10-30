@@ -1,19 +1,21 @@
 #!/usr/bin/env python3
-import random
-import os
+from random import randint
+from os import name, system
+from art import logo
 
 def clear():
-    if os.name == 'nt':
-        os.system('cls')
+    if name == 'nt':
+        system('cls')
     else:
-        os.system('clear')
+        system('clear')
 
 gameOver = False
 while not gameOver:
     clear()
+    print(logo)
     print('Welcome to the Number Guessing Game!')
     print('I\'m thinking of a number between 1 and 100.')
-    num = random.randint(1,100)
+    num = randint(1,100)
     difficulty = input('Choose a difficulty. Type \'easy\' or \'hard\': ')
     if difficulty == 'hard':
         attempts = 5

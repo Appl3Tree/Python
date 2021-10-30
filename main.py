@@ -49,22 +49,17 @@ while runProgram == True:
         elif choice == 8:
             os.system('"100 Days of Code/Day 008 - Function Parameters & Caesar Cipher/caesar-cipher.py"')
         elif choice == 9:
-            os.system('"100 Days of Code/Day 009 - Dictionaries, Nesting and the Secret Auction/blind-auction.py"')
-<<<<<<< HEAD
-=======
+            os.system('"100 Days of Code/Day 009 - Dictionaries, Nesting, and the Secret Auction/blind-auction.py"')
         elif choice == 10:
             os.system('"100 Days of Code/Day 010 - Functions with Outputs/calculator.py"')
         elif choice == 11:
             os.system('"100 Days of Code/Day 011 - Blackjack Capstone Project/blackjack.py"')
->>>>>>> 52ddc39789c4e58a84ee3aa7d88abb829089a1a0
+        elif choice == 12:
+            os.system('"100 Days of Code/Day 012 - Scope and Number Guessing Game/guess-the-number.py"')
         else:
             clear_screen()
             quit()
     else:
         clear_screen()
         quit()
-<<<<<<< HEAD
     print('\n')
-=======
-    print('\n')
->>>>>>> 52ddc39789c4e58a84ee3aa7d88abb829089a1a0
