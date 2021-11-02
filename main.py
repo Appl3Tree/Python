@@ -1,23 +1,27 @@
 #!/usr/bin/env python3
 import os
 import days_of_code
+RUN_PROGRAM = True
+if RUN_PROGRAM:
+    WRITING_CODE = False
+else:
+    WRITING_CODE = True
 
-def clear_screen():
+def clear():
     if os.name == 'nt':
         os.system('cls')
     else:
         os.system('clear')
 
-runProgram = True
-if runProgram == False:
+if WRITING_CODE:
     os.system('cp /home/runner/Python/pynew /opt/virtualenvs/python3/bin/pynew')
     os.system('cp /home/runner/Python/.vimrc /home/runner/.vimrc')
 
-while runProgram == True:
+while RUN_PROGRAM:
     # Line below moved 'cause replit doesn't like hard-coded paths past a homedir.
     #daysOfCode = os.listdir('/home/runner/Python/100 Days of Code/')
     choice = input('What do you wanna do?\n1 - List Projects\n2 - Run a project\n')
-    clear_screen()
+    clear()
     if choice == '1':
         inc = 0
         for day in days_of_code.daysOfCode:
@@ -26,7 +30,7 @@ while runProgram == True:
             if inc % 10 == 0:
                 cont = input('List more? y/n\n')
                 if cont == 'y' or cont == 'Y':
-                    clear_screen()
+                    clear()
                     continue
                 else:
                     break
@@ -57,9 +61,9 @@ while runProgram == True:
         elif choice == 12:
             os.system('"100 Days of Code/Day 012 - Scope and Number Guessing Game/guess-the-number.py"')
         else:
-            clear_screen()
+            clear()
             quit()
     else:
-        clear_screen()
+        clear()
         quit()
     print('\n')
