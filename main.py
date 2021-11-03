@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 import days_of_code
-RUN_PROGRAM = True
+RUN_PROGRAM = False
 if RUN_PROGRAM:
     WRITING_CODE = False
 else:
@@ -15,6 +15,7 @@ def clear():
 
 if WRITING_CODE:
     os.system('cp /home/runner/Python/pynew /opt/virtualenvs/python3/bin/pynew')
+    os.system('chmod +x /opt/virtualenvs/python3/bin/pynew')
     os.system('cp /home/runner/Python/.vimrc /home/runner/.vimrc')
 
 while RUN_PROGRAM:
@@ -60,6 +61,8 @@ while RUN_PROGRAM:
             os.system('"100 Days of Code/Day 011 - Blackjack Capstone Project/blackjack.py"')
         elif choice == 12:
             os.system('"100 Days of Code/Day 012 - Scope and Number Guessing Game/guess-the-number.py"')
+        elif choice == 13:
+            os.system('"100 Days of Code/Day 013 - Debugging/.py"')
         else:
             clear()
             quit()

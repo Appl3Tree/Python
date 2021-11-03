@@ -11,4 +11,5 @@ daysOfCode = [
     '010 - Functions with Outputs',
     '011 - Blackjack Capstone Project',
     '012 - Scope and Number Guessing Game',
+    '013 - Debugging',
 ]
