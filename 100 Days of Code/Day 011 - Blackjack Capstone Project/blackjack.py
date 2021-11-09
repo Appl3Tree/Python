@@ -77,5 +77,4 @@ def playGame():
 clear_screen()
 while input('Do you want to play a game of Blackjack? Type \'y\' or \'n\': ') == 'y':
     clear_screen()
-    clear_screen()
     playGame()

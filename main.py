@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 import days_of_code
-RUN_PROGRAM = False
+RUN_PROGRAM = True
 if RUN_PROGRAM:
     WRITING_CODE = False
 else:
