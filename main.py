@@ -62,7 +62,7 @@ while RUN_PROGRAM:
         elif choice == 12:
             os.system('"100 Days of Code/Day 012 - Scope and Number Guessing Game/guess-the-number.py"')
         elif choice == 13:
-            os.system('"100 Days of Code/Day 013 - Debugging/.py"')
+            os.system('"100 Days of Code/Day 013 - Debugging/temp.py"')
         else:
             clear()
             quit()
