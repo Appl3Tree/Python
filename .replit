@@ -1,4 +1,4 @@
-run="python3 main.py"
+run="python3 replit.py"
 language="python3"
 onBoot="echo Booting up!"
 

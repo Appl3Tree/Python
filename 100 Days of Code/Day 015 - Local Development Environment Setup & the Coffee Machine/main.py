@@ -79,16 +79,31 @@ def processCoins(quarters, dimes, nickles, pennies):
     total += pennies * 0.01
     return total
 
+def showMenu():
+    print('''
+    **********************
+    *        MENU        *
+    *____________________*
+    * Espresso   - $1.50 *
+    * Latte      - $2.50 *
+    * Cappuccino - $3.00 *
+    **********************
+    ''')
+
 coffeeMachine = 'on'
 
 
+clear()
 while coffeeMachine == 'on':
-    clear()
     drink = getUserDrink()
     if drink == 'off':
         exit()
     elif drink == 'report':
         displayReport(resources)
+    elif drink == 'menu':
+        showMenu()
+    elif drink != 'espresso' and drink != 'latte' and drink != 'cappuccino':
+        print(f'{drink} is not a valid option.')
     elif resourcesAvailable(drink):
         print('Please insert coins.')
         numQuarters = int(input('How many quarters?: '))
@@ -98,14 +113,15 @@ while coffeeMachine == 'on':
         payment = processCoins(numQuarters, numDimes, numNickles, numPennies)
 
         if payment and (payment < MENU[drink]['cost']):
-            print('Sorry, that\'s not enough money. Money refunded.')
+            print('Sorry, that\'s not enough money. Money refunded.\n')
         else:
             if payment > MENU[drink]['cost']:
                 refund = "{:.2f}".format(payment - MENU[drink]['cost'])
                 print(f'Here is ${refund} in change.')
-            print(f'Here is your latte ☕️ Enjoy!')
+            print(f'Here is your latte ☕️ Enjoy!\n')
             resources['water'] -= MENU[drink]['ingredients']['water']
             if 'milk' in MENU[drink]['ingredients']:
                 resources['milk'] -= MENU[drink]['ingredients']['milk']
             resources['coffee'] -= MENU[drink]['ingredients']['coffee']
             resources['money'] += MENU[drink]['cost']
+clear()
