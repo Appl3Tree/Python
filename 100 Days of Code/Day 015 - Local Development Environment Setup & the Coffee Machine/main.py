@@ -95,16 +95,16 @@ coffeeMachine = 'on'
 
 clear()
 while coffeeMachine == 'on':
-    drink = getUserDrink()
-    if drink == 'off':
+    choice = getUserDrink()
+    if choice == 'off':
         exit()
-    elif drink == 'report':
+    elif choice == 'report':
         displayReport(resources)
-    elif drink == 'menu':
+    elif choice == 'menu':
         showMenu()
-    elif drink != 'espresso' and drink != 'latte' and drink != 'cappuccino':
-        print(f'{drink} is not a valid option.')
-    elif resourcesAvailable(drink):
+    elif choice != 'espresso' and choice != 'latte' and choice != 'cappuccino':
+        print(f'{choice} is not a valid option.')
+    elif resourcesAvailable(choice):
         print('Please insert coins.')
         numQuarters = int(input('How many quarters?: '))
         numDimes = int(input('How many dimes?: '))
@@ -112,16 +112,16 @@ while coffeeMachine == 'on':
         numPennies = int(input('How many pennies?: '))
         payment = processCoins(numQuarters, numDimes, numNickles, numPennies)
 
-        if payment and (payment < MENU[drink]['cost']):
+        if payment and (payment < MENU[choice]['cost']):
             print('Sorry, that\'s not enough money. Money refunded.\n')
         else:
-            if payment > MENU[drink]['cost']:
-                refund = "{:.2f}".format(payment - MENU[drink]['cost'])
+            if payment > MENU[choice]['cost']:
+                refund = "{:.2f}".format(payment - MENU[choice]['cost'])
                 print(f'Here is ${refund} in change.')
             print(f'Here is your latte ☕️ Enjoy!\n')
-            resources['water'] -= MENU[drink]['ingredients']['water']
-            if 'milk' in MENU[drink]['ingredients']:
-                resources['milk'] -= MENU[drink]['ingredients']['milk']
-            resources['coffee'] -= MENU[drink]['ingredients']['coffee']
-            resources['money'] += MENU[drink]['cost']
+            resources['water'] -= MENU[choice]['ingredients']['water']
+            if 'milk' in MENU[choice]['ingredients']:
+                resources['milk'] -= MENU[choice]['ingredients']['milk']
+            resources['coffee'] -= MENU[choice]['ingredients']['coffee']
+            resources['money'] += MENU[choice]['cost']
 clear()

@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import os
-import sys
-RUN_PROGRAM = True
+RUN_PROGRAM = False
 if RUN_PROGRAM:
     WRITING_CODE = False
 else:
@@ -19,8 +18,6 @@ if WRITING_CODE:
     os.system('cp /home/runner/Python/.vimrc /home/runner/.vimrc')
 
 while RUN_PROGRAM:
-    # Line below moved 'cause replit doesn't like hard-coded paths past a homedir.
-    #daysOfCode = os.listdir('/home/runner/Python/100 Days of Code/')
     days = os.listdir('100 Days of Code')
     choice = input('What do you wanna do?\n1 - List Projects\n2 - Run a project\n')
     clear()
@@ -38,40 +35,14 @@ while RUN_PROGRAM:
                     break
     elif choice == '2':
         choice = int(input('Which day\'s project do you want to run? 1-100\n'))
-        if choice == 1:
-            sys.path.append("100 Days of Code/" + days[choice - 1])
-        elif choice == 2:
-            sys.path.append("100 Days of Code/" + days[choice - 1])
-        elif choice == 3:
-            sys.path.append("100 Days of Code/" + days[choice - 1])
-        elif choice == 4:
-            sys.path.append("100 Days of Code/" + days[choice - 1])
-        elif choice == 5:
-            sys.path.append("100 Days of Code/" + days[choice - 1])
-        elif choice == 6:
-            sys.path.append("100 Days of Code/" + days[choice - 1])
-        elif choice == 7:
-            sys.path.append("100 Days of Code/" + days[choice - 1])
-        elif choice == 8:
-            sys.path.append("100 Days of Code/" + days[choice - 1])
-        elif choice == 9:
-            sys.path.append("100 Days of Code/" + days[choice - 1])
-        elif choice == 10:
-            sys.path.append("100 Days of Code/" + days[choice - 1])
-        elif choice == 11:
-            sys.path.append("100 Days of Code/" + days[choice - 1])
-        elif choice == 12:
-            sys.path.append("100 Days of Code/" + days[choice - 1])
-        elif choice == 13:
-            sys.path.append("100 Days of Code/" + days[choice - 1])
-        elif choice == 14:
-            sys.path.append("100 Days of Code/" + days[choice - 1])
-        elif choice == 15:
-            sys.path.append("100 Days of Code/" + days[choice - 1])
+        if type(choice) == int and choice <= len(days):
+            path = "100 Days of Code/" + str(days[choice - 1]) + "/main.py"
+            os.system(f'python3 "{path}"')
+        elif choice > len(days):
+            print(f'Day {choice} hasn\'t been completed yet.')
         else:
             clear()
             quit()
-        import main
     else:
         clear()
         quit()
