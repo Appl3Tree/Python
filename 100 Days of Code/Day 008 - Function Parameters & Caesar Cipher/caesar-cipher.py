@@ -18,8 +18,12 @@ def caesar(start_text, shift_amount, cipher_direction):
     for letter in start_text:
         value = ord(letter)
         new_value = value + shift_amount
-        end_text += chr(new_value)
-        ord_values += str(new_value) + ' '
+        if letter != ' ':
+            end_text += chr(new_value)
+            ord_values += str(new_value) + ' '
+        else:
+            end_text += ' '
+            ord_values += '  '
     print(f'The {direction}d text is "{end_text}".')
     print(f'The ord values of the {direction}d text is "{ord_values}".')
 
