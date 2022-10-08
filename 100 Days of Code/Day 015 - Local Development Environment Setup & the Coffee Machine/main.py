@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 from os import name, system
 
+
 def clear():
     if name == 'nt':
         system('cls')
     else:
         system('clear')
+
 
 MENU = {
     'espresso': {
@@ -40,16 +42,17 @@ resources = {
     'money': 0,
 }
 
+
 # TODO 1: Prompt user by asking "What would you like? (espresso/latte/cappuccino): "
-def getUserDrink():
+def get_user_drink():
     return input('What would you like? (espresso/latte/cappuccino): ').lower()
 
 
-def displayReport(machineResources):
-    currentWater = machineResources['water']
-    currentMilk = machineResources['milk']
-    currentCoffee = machineResources['coffee']
-    currentMoney = "{:.2f}".format(machineResources['money'])
+def display_report(machine_resources):
+    currentWater = machine_resources['water']
+    currentMilk = machine_resources['milk']
+    currentCoffee = machine_resources['coffee']
+    currentMoney = "{:.2f}".format(machine_resources['money'])
     currentResources = f'''
     Water: {currentWater}ml
     Milk: {currentMilk}ml
@@ -59,7 +62,7 @@ def displayReport(machineResources):
     print(currentResources)
 
 
-def resourcesAvailable(drink):
+def resources_available(drink):
     if MENU[drink]['ingredients']['water'] > resources['water']:
         print('Sorry, there is not enough water.')
         return 0
@@ -72,14 +75,16 @@ def resourcesAvailable(drink):
     else:
         return 1
 
-def processCoins(quarters, dimes, nickles, pennies):
+
+def process_coins(quarters, dimes, nickles, pennies):
     total = quarters * 0.25
     total += dimes * 0.10
     total += nickles * 0.05
     total += pennies * 0.01
     return total
 
-def showMenu():
+
+def show_menu():
     print('''
     **********************
     *        MENU        *
@@ -90,27 +95,26 @@ def showMenu():
     **********************
     ''')
 
+
 coffeeMachine = 'on'
-
-
 clear()
 while coffeeMachine == 'on':
-    choice = getUserDrink()
+    choice = get_user_drink()
     if choice == 'off':
         exit()
     elif choice == 'report':
-        displayReport(resources)
+        display_report(resources)
     elif choice == 'menu':
-        showMenu()
+        show_menu()
     elif choice != 'espresso' and choice != 'latte' and choice != 'cappuccino':
         print(f'{choice} is not a valid option.')
-    elif resourcesAvailable(choice):
+    elif resources_available(choice):
         print('Please insert coins.')
         numQuarters = int(input('How many quarters?: '))
         numDimes = int(input('How many dimes?: '))
         numNickles = int(input('How many nickels?: '))
         numPennies = int(input('How many pennies?: '))
-        payment = processCoins(numQuarters, numDimes, numNickles, numPennies)
+        payment = process_coins(numQuarters, numDimes, numNickles, numPennies)
 
         if payment and (payment < MENU[choice]['cost']):
             print('Sorry, that\'s not enough money. Money refunded.\n')
