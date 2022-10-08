@@ -121,7 +121,7 @@ while coffeeMachine == 'on':
             if payment > MENU[choice]['cost']:
                 refund = "{:.2f}".format(payment - MENU[choice]['cost'])
                 print(f'Here is ${refund} in change.')
-            print(f'Here is your latte ☕️ Enjoy!\n')
+            print(f'Here is your {choice} ☕️ Enjoy!\n')
             resources['water'] -= MENU[choice]['ingredients']['water']
             if 'milk' in MENU[choice]['ingredients']:
                 resources['milk'] -= MENU[choice]['ingredients']['milk']
