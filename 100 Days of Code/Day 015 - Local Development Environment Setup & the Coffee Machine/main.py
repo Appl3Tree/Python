@@ -43,7 +43,6 @@ resources = {
 }
 
 
-# TODO 1: Prompt user by asking "What would you like? (espresso/latte/cappuccino): "
 def get_user_drink():
     return input('What would you like? (espresso/latte/cappuccino): ').lower()
 
