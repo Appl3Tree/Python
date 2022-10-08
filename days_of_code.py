@@ -13,4 +13,6 @@ daysOfCode = [
     '012 - Scope and Number Guessing Game',
     '013 - Debugging',
     '014 - Higher Lower Game Project',
+    '015 - The Coffee Machine',
+    '016 - Object Oriented Programming (OOP)',
 ]
