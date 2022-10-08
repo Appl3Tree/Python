@@ -49,17 +49,17 @@ def get_user_drink():
 
 
 def display_report(machine_resources):
-    currentWater = machine_resources['water']
-    currentMilk = machine_resources['milk']
-    currentCoffee = machine_resources['coffee']
-    currentMoney = "{:.2f}".format(machine_resources['money'])
-    currentResources = f'''
-    Water: {currentWater}ml
-    Milk: {currentMilk}ml
-    Coffee: {currentCoffee}g
-    Money: ${currentMoney}
+    current_water = machine_resources['water']
+    current_milk = machine_resources['milk']
+    current_coffee = machine_resources['coffee']
+    current_money = "{:.2f}".format(machine_resources['money'])
+    current_resources = f'''
+    Water: {current_water}ml
+    Milk: {current_milk}ml
+    Coffee: {current_coffee}g
+    Money: ${current_money}
     '''
-    print(currentResources)
+    print(current_resources)
 
 
 def resources_available(drink):
