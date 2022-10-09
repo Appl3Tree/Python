@@ -16,5 +16,6 @@ def clear():
     else:
         system('clear')
 
+
 ''')
 system('chmod +x ' + filename)
