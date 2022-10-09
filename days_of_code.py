@@ -15,4 +15,5 @@ daysOfCode = [
     '014 - Higher Lower Game Project',
     '015 - The Coffee Machine',
     '016 - Object Oriented Programming (OOP)',
+    '017 - The Quiz Project',
 ]
