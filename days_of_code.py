@@ -16,4 +16,5 @@ daysOfCode = [
     '015 - The Coffee Machine',
     '016 - Object Oriented Programming (OOP)',
     '017 - The Quiz Project',
+    '018 - Turtle & the Graphical User Interface (GUI)'
 ]
