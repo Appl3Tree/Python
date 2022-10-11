@@ -31,11 +31,12 @@ else:
                         break
         elif choice == '2':
             choice = int(input('Which day\'s project do you want to run? 1-100\n'))
-            if type(choice) == int and choice <= len(days):
-                path = "100 Days of Code/" + str(days[choice - 1]) + "/main.py"
-                os.system(f'python3 "{path}"')
-            elif choice > len(days):
-                print(f'Day {choice} hasn\'t been completed yet.')
+            if type(choice) == int:
+                if choice <= len(days) and os.path.exists(f'"100 Days of Code/{str(days[choice - 1])}/main.py"'):
+                        path = "100 Days of Code/" + str(days[choice - 1]) + "/main.py"
+                        os.system(f'python3 "{path}"')
+                else:
+                    print(f'Day {choice} hasn\'t been started yet.')
             else:
                 clear()
                 quit()
