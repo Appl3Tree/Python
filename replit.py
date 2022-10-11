@@ -36,9 +36,9 @@ else:
                 if os.path.exists(path):
                     os.system(f'python3 "{path}"')
                 else:
-                    print(f'Day {choice} hasn\'t been started yet.')
+                    print(f'Day {choice} hasn\'t been completed yet.')
             elif choice > len(days):
-                print(f'Day {choice} hasn\'t been completed yet.')
+                print(f'Day {choice} hasn\'t been started yet.')
             else:
                 clear()
                 quit()
