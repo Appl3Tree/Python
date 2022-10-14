@@ -22,15 +22,36 @@ class Snake:
         self.body = []
         self.create_snake()
         self.head = self.body[0]
+        self.head.shape('arrow')
+        self.create_walls()
+
+    def create_walls(self):
+        wall = Turtle()
+        wall.penup()
+        wall.hideturtle()
+        wall.speed('fastest')
+        wall.color('white')
+        wall.goto(290, 290)
+        wall.pendown()
+        wall.goto(290, -290)
+        wall.goto(-290, -290)
+        wall.goto(-290, 290)
+        wall.goto(290, 290)
 
     def create_snake(self):
         for position in STARTING_POSITIONS:
-            body_part = Turtle()
-            body_part.shape('square')
-            body_part.color('white')
-            body_part.penup()
-            body_part.setposition(position)
-            self.body.append(body_part)
+            self.add_segment(position)
+
+    def add_segment(self, position):
+        body_part = Turtle()
+        body_part.shape('square')
+        body_part.color('white')
+        body_part.penup()
+        body_part.setposition(position)
+        self.body.append(body_part)
+
+    def extend(self):
+        self.add_segment(self.body[-1].position())
 
     def move(self):
         for chunk_num in range(len(self.body) - 1, 0, -1):
