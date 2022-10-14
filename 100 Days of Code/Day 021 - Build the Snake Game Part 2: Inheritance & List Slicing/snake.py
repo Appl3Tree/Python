@@ -8,6 +8,7 @@ UP = 90
 LEFT = 180
 DOWN = 270
 
+
 def clear():
     if name == 'nt':
         system('cls')
