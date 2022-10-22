@@ -41,7 +41,7 @@ def clear():
 clear()
 # Creating a new window and configurations
 window = tkinter.Tk()
-window.title('Mile to Km Converter')
+window.title('Miles to Kilometer Converter')
 # window.minsize(width=500, height=300)
 window.config(padx=20, pady=20)
 #
@@ -136,7 +136,7 @@ miles_label = tkinter.Label(text='Miles')
 km_label = tkinter.Label(text='Km')
 equal_to_label = tkinter.Label(text='is equal to')
 num_kms = tkinter.Label(text=0)
-num_miles = tkinter.Entry(width=10)
+num_miles = tkinter.Entry(width=7)
 num_miles.insert(tkinter.END, '0')
 calculate_button = tkinter.Button(text='Calculate', command=calculate_km)
 error = tkinter.Label()
