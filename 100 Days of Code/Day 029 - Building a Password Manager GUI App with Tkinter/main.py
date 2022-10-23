@@ -3,7 +3,7 @@ from os import name, system
 from tkinter import *
 from tkinter import messagebox, simpledialog
 from sys import argv
-from random import randint, shuffle, choice
+from random import shuffle, choice
 import pyperclip
 
 
