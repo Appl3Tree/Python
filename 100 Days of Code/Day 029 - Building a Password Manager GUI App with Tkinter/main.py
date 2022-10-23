@@ -106,7 +106,7 @@ def save_password():
                                                                         f'\tEmail: {username_email}\n'
                                                                         f'\tPassword: {password}\nIs it okay to save?')
         if continue_with_save:
-            with open('data.txt', 'a') as data:
+            with open(f'{argv[0][:-7]}data.txt', 'a') as data:
                 data.write(f'{website} | {username_email} | {password}\n')
 
             pyperclip.copy(password)
@@ -162,6 +162,8 @@ generate_password_button.grid(column=2, row=3)
 add_button = Button(text='Add', width=36, bg=MODE_BG, fg=MODE_FONT, highlightbackground=MODE_BG, command=save_password)
 add_button.grid(column=1, row=4, columnspan=2)
 
+messagebox.showwarning(title='Warning', message='This application saves data to data.txt which is viewable by anyone '
+                                                'browsing this replit/github repository.\nDO NOT PUT YOUR ACTUAL CREDENTIALS IN HERE.')
 
 # Keep at the bottom
 window.mainloop()
