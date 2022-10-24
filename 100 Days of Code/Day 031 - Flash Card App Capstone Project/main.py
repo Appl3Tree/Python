@@ -2,7 +2,11 @@
 from os import name, system
 from tkinter import *
 from sys import argv
-import pandas
+try:
+    import pandas
+except ModuleNotFoundError:
+    print('Replit sucks for some modules and this program relies on pulling data from a csv. I\'m too lazy to do it with the csv module so... bye.')
+    exit()
 from random import choice
 
 
