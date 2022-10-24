@@ -5,7 +5,10 @@ from tkinter import *
 from tkinter import messagebox, simpledialog
 from sys import argv
 from random import shuffle, choice
-import pyperclip
+try:
+    import pyperclip
+except ModuleNotFoundError:
+    print('repl sucks and won\'t let me add this module... :/')
 import json
 
 
@@ -216,7 +219,10 @@ def save_password():
                 # Saving updated data
                 json.dump(data, data_file, indent=4)
         finally:
-            pyperclip.copy(password)
+            try:
+                pyperclip.copy(password)
+            except NameError:
+                print('repl sucks and won\'t let me add this module... :/')
             website_entry.delete(0, END)
             password_entry.delete(0, END)
             website_entry.focus()
