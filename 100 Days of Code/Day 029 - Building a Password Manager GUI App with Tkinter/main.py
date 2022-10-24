@@ -163,7 +163,8 @@ add_button = Button(text='Add', width=36, bg=MODE_BG, fg=MODE_FONT, highlightbac
 add_button.grid(column=1, row=4, columnspan=2)
 
 messagebox.showwarning(title='Warning', message='This application saves data to data.txt which is viewable by anyone '
-                                                'browsing this replit/github repository.\nDO NOT PUT YOUR ACTUAL CREDENTIALS IN HERE.')
+                                                'browsing the repl.it repl.\n'
+                                                'DO NOT PUT YOUR ACTUAL CREDENTIALS IN HERE.')
 
 # Keep at the bottom
 window.mainloop()
