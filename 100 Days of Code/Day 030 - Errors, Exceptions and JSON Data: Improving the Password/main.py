@@ -282,13 +282,13 @@ light_mode_toggle.grid(column=0, row=5, sticky=W)
 dark_mode_toggle.grid(column=0, row=6, sticky=W)
 
 # Entries
-website_entry = Entry(width=22, bg=MODE_BG, fg=MODE_FONT, highlightthickness=0)
+website_entry = Entry(width=24, bg=MODE_BG, fg=MODE_FONT, highlightthickness=0)
 website_entry.grid(column=1, row=1, sticky=W)
 website_entry.focus()
-email_user_entry = Entry(width=39, bg=MODE_BG, fg=MODE_FONT, highlightthickness=0)
+email_user_entry = Entry(width=41, bg=MODE_BG, fg=MODE_FONT, highlightthickness=0)
 email_user_entry.insert(0, 'example@email.com')
 email_user_entry.grid(column=1, row=2, columnspan=2, sticky=W)
-password_entry = Entry(width=22, bg=MODE_BG, fg=MODE_FONT, highlightthickness=0)
+password_entry = Entry(width=24, bg=MODE_BG, fg=MODE_FONT, highlightthickness=0)
 password_entry.grid(column=1, row=3, sticky=W)
 
 # Buttons
@@ -297,7 +297,7 @@ search_button.grid(column=2, row=1)
 generate_password_button = Button(text='Generate Password', width=13, bg=MODE_BG, fg=MODE_FONT,
                                   highlightbackground=MODE_BG, command=generate_password)
 generate_password_button.grid(column=2, row=3)
-add_button = Button(text='Add', width=36, bg=MODE_BG, fg=MODE_FONT, highlightbackground=MODE_BG, command=save_password)
+add_button = Button(text='Add', width=38, bg=MODE_BG, fg=MODE_FONT, highlightbackground=MODE_BG, command=save_password)
 add_button.grid(column=1, row=4, columnspan=2)
 
 messagebox.showwarning(title='Warning', message='This application saves data to data.json which is viewable by anyone '
