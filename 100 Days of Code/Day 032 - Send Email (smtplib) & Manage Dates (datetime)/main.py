@@ -27,7 +27,8 @@ clear()
 # Best regards,
 # Sender'''
 # with smtplib.SMTP(host='smtp.freesmtpservers.com', port=25) as connection:
-#     # Free SMTP Servers does not allow TLS and doesn't accept authentication. Use this for a legit service that can do these.
+#     # Free SMTP Servers does not allow TLS and doesn't accept authentication. Use this for a legit service
+#     that can do these.
 #     # connection.starttls()
 #     # connection.login(user='', password='')
 #     connection.sendmail(from_addr=my_email,
@@ -56,15 +57,16 @@ csv_data = {}
 try:
     import pandas
 except ModuleNotFoundError:
-    print('Replit doesn\' like pandas so I guess I\'ll use csv...')
+    print('Replit doesn\'t like pandas so I guess I\'ll use csv...')
     import csv
+
     with open(f'{argv[0][:-7]}birthdays.csv') as birthday_file:
         data = csv.reader(birthday_file)
         for val in data:
             if val[0] != 'name':
                 csv_data[(int(val[3]), int(val[4]))] = [val[0], val[1], int(val[2]), int(val[3]), int(val[4])]
 else:
-    data = pandas.readcsv(f'{argv[0][:-7]}birthdays.csv')
+    data = pandas.read_csv(f'{argv[0][:-7]}birthdays.csv')
     csv_data = {(data_row['month'], data_row['day']): data_row for (index, data_row) in data.iterrows()}
 placeholder = '[NAME]'
 message = ['''Subject: Happy Birthday!
@@ -83,7 +85,7 @@ Hey [NAME], happy birthday! Have a wonderful time today and eat lots of cake!
 Lots of love,
 
 Tree''',
-          '''Subject: Happy Birthday!
+           '''Subject: Happy Birthday!
 
 Dear [NAME],
 
@@ -103,5 +105,5 @@ if today in csv_data:
         dest_email = csv_data[today][1]
         annual_message = choice(message).replace(placeholder, dest_name)
         connection.sendmail(from_addr='100daysofpython@freesmtpservers.com',
-                           to_addrs=dest_email,
-                           msg=annual_message)
+                            to_addrs=dest_email,
+                            msg=annual_message)
