@@ -3,7 +3,7 @@ from os import name, system, environ
 import requests
 from twilio.rest import Client
 from twilio.http.http_client import TwilioHttpClient
-from secret import *
+from secrets import *
 
 
 def clear():
