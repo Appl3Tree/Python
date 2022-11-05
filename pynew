@@ -8,14 +8,14 @@ filename = argv[1]
 filename += '.py'
 with open(filename, 'w') as f:
     f.write('''#!/usr/bin/env python3
-from os import name, system
+import os
 
 
 def clear():
-    if name == 'nt':
-        system('cls')
+    if os.name == 'nt':
+        os.system('cls')
     else:
-        system('clear')
+        os.system('clear')
 
 
 clear()
