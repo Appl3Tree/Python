@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 import requests
-from datetime import datetime
+from datetime import datetime, timedelta
 
 USERNAME = 'appletree'
 TOKEN = 'kfjhasldfeb'
@@ -59,4 +59,18 @@ graph_params = {
 }
 
 # response = requests.post(url=pixel_creation_endpoint, json=graph_params, headers=headers)
+# response.raise_for_status
+yesterday = (datetime.now() - timedelta(days = 1)).strftime("%Y%m%d")
+update_endpoint = f'{pixel_creation_endpoint}/{yesterday}'
+
+new_pixel_data = {
+    'quantity': '4.5'
+}
+
+# response = requests.put(url=update_endpoint, json=new_pixel_data, headers=headers)
+# response.raise_for_status
+
+delete_endpoint = update_endpoint
+
+# response = requests.delete(url=delete_endpoint, headers=headers)
 # response.raise_for_status
