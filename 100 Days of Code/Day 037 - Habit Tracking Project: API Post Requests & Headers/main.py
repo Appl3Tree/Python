@@ -58,5 +58,5 @@ graph_params = {
     'quantity': distance_travelled,
 }
 
-response = requests.post(url=pixel_creation_endpoint, json=graph_params, headers=headers)
-response.raise_for_status
+# response = requests.post(url=pixel_creation_endpoint, json=graph_params, headers=headers)
+# response.raise_for_status
