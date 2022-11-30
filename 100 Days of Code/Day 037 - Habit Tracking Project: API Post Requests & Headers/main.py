@@ -43,14 +43,20 @@ headers = {
 # response.raise_for_status
 # print(response.text)
 
-now = datetime.now()
-today = now.strftime("%Y%m%d")
-graph_url = f'{graph_endpoint}/graph1'
+today = datetime.now().strftime("%Y%m%d")
+pixel_creation_endpoint = f'{graph_endpoint}/graph1'
+while True:
+    try:
+        distance_travelled = float(input('How far did you travel today (Km)?\n'))
+    except ValueError:
+        print('A number is required. Please try again.')
+    else:
+        break
+        
 graph_params = {
     'date': today,
-    'quantity': '1',
+    'quantity': distance_travelled,
 }
 
-response = requests.post(url=graph_url, json=graph_params, headers=headers)
+response = requests.post(url=pixel_creation_endpoint, json=graph_params, headers=headers)
 response.raise_for_status
-print(response.text)
