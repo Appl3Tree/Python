@@ -12,7 +12,12 @@ def clear():
 lastProject = None
 while True:
     days = os.listdir('100 Days of Code')
-    choice = input('What do you wanna do?\n1 - List Projects\n2 - Run a project\n3 - Just writing code (Dev Only)\n4 - Run last project again\n')
+    choice = input('What do you wanna do?\n'
+                   '1 - List Projects\n'
+                   '2 - Run a project\n'
+                   '3 - Just writing code (Dev Only)\n'
+                   'r - Run last project again\n'
+                   'x - Exit\n')
     clear()
     if choice == '1':
         inc = 0
@@ -46,10 +51,11 @@ while True:
         os.system('cp /home/runner/Python/.vimrc /home/runner/.vimrc')
         clear()
         quit()
-    elif choice == '4':
+    elif choice in ['r', 'R']:
         if lastProject:
             path = "100 Days of Code/" + str(days[lastProject - 1]) + "/main.py"
             os.system(f'python3 "{path}"')
+    elif choice in ['x', 'X']:
+        quit()
     else:
         clear()
-        quit()
